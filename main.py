@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-print("This will be Quarto")
-print("Just testing Github")
-=======
-print("This will be Quarto, Arsenii's branch")
-
 
 
 from PlacePiece import PlacePiece
@@ -54,6 +48,3 @@ DTCY
 """
 
 
-
-
->>>>>>> Stashed changes
