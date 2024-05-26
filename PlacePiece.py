@@ -14,6 +14,6 @@ def PlacePiece(Piece):
 
     globals.Board[XCoordinate][YCoordinate] = Piece
 
-    print(globals.Board)
+    #print(globals.Board)
 
 
