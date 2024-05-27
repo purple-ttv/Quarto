@@ -8,7 +8,7 @@ def TakeFirstInput():
     Prompt = "Choose your first piece (e.g. LHSN): "
     FirstPiece = input(Prompt)
     while not (FirstPiece in globals.LeftPieces):
-        FirstPiece = input("Invalid input, try again ")
+        FirstPiece = input("Invalid input, try again: ")
     UpdatePieceList(FirstPiece)
     return FirstPiece
 

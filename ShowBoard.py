@@ -1,6 +1,7 @@
 # This file was written by Vakaris
 
 import globals
+import time
 
 def ShowBoard():
     FormattedBoard = f"""
@@ -12,5 +13,6 @@ def ShowBoard():
     |   | A    | B    | C    | D    |   
     """
     print(FormattedBoard)
+    time.sleep(1)
 
 # This procedure formats the global 2D board list into a table, and shows it to the user

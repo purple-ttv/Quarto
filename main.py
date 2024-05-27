@@ -7,6 +7,7 @@ from Greeting import OutputGreeting
 from ShowBoard import ShowBoard
 from LeftPieces import UpdatePieceList
 from TakeFirstInput import TakeFirstInput
+from MovePrompt import WhoseMove
 from PlacePiece import PlacePiece
 from PieceInput import TakePieceInput
 from CheckBoard import CheckBoard
@@ -21,11 +22,14 @@ ShowBoard()                     # The board is shown for the first player
 Counter = 0                     # Counter to track the move number
 IsOver = False                  # Flag used to break out of the main loop
 
+WhoseMove(1)                    # Prompt to show it's Player 1's move
 Piece = TakeFirstInput()        # Player one chooses his first piece
                                 # Different function, as player can choose a piece himself
 
 while (globals.Status == 0):    # Loop will stop when the global Status variable is changed (indicating the ste of the game)
     Counter += 1
+    if (Counter != 1):          # Skipping the first counter to avoid prompting twice
+        WhoseMove(Counter)      # Prompt that shows whose move it is
     PlacePiece(Piece)           # Player places the given piece
     ShowBoard()                 # Updated board is shown
 
