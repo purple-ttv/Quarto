@@ -7,9 +7,9 @@ from Greeting import OutputGreeting
 from ShowBoard import ShowBoard
 from LeftPieces import UpdatePieceList
 from TakeFirstInput import TakeFirstInput
-# from PlacePiece import PlacePiece
+from PlacePiece import PlacePiece
 from PieceInput import TakePieceInput
-# from CheckBoard import CheckBoard
+from CheckBoard import CheckBoard
 from Ending import Ending
 from ResolveStatus import ResolveStatus
 
@@ -23,21 +23,27 @@ ShowBoard()
 
 # Counter to track the move number is initialized
 Counter = 0
+IsOver = False
 
 # Player one chooses his first piece
 Piece = TakeFirstInput()
 
 while (globals.Status == 0):
     Counter += 1
-    PlacePiece(Piece)   # Player places the given piece
-    ShowBoard()         # Updated board is shown
-    Piece = TakePieceInput()  # Player either piece for opponent or says "Quarto"  
-    while (Piece == "Quatro"):
+    PlacePiece(Piece)           # Player places the given piece
+    ShowBoard()                 # Updated board is shown
+    Piece = TakePieceInput()    # Player either piece for opponent or says "Quarto"  
+    while (Piece == "Quarto"):
         if (CheckBoard()):
-            ResolveStatus()
+            ResolveStatus(Counter)
+            IsOver = True
+            break
         else:
             print("There was no Quarto!")
             Piece = TakePieceInput()
+
+    if IsOver == True:
+        break
 
     UpdatePieceList(Piece)
 
@@ -45,9 +51,6 @@ while (globals.Status == 0):
         globals.Status = 3
 
 # PlacePiece is called, user makes position choice, board is updated
-
-# In loop, players choose their piece from a possible list
-Piece = TakePieceInput()
 
 # PlacePiece is called and board updated and checked
 

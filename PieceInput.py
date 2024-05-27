@@ -5,8 +5,8 @@ import globals
 def TakePieceInput():
     print(f"Possible pieces: {globals.LeftPieces}")
     Piece = input("Choose the piece for your opponent to place, or say 'Quarto': ")
-    while not (Piece in globals.AvailablePieces) and (Piece != "Quarto"):
-        input("Invalid input, try again")
+    while not (Piece in globals.LeftPieces) and (Piece != "Quarto"):
+        Piece = input("Invalid input, try again")
     # The value will only be accepted if it is one of the available values or == Quarto
     return Piece
 

@@ -7,8 +7,6 @@ def ResolveStatus(Counter):
         globals.Status = 2
     elif (Counter % 2 == 1):
         globals.Status = 1
-    else:
-        globals.Status = 3
 
 
 # This procedure is called when a Quarto is detected
