@@ -7,6 +7,8 @@ def TakeFirstInput():
     print(f"Possible pieces: {globals.LeftPieces}")
     Prompt = "Choose your first piece (e.g. LHSN): "
     FirstPiece = input(Prompt)
+    while not (FirstPiece in globals.AvailablePieces):
+        input("Invalid input, try again")
     UpdatePieceList(FirstPiece)
     return FirstPiece
 
