@@ -1,50 +1,56 @@
+# This file was written by Vakaris
+
+# --- Importing all modules ---
+# import time
+import globals
+from Greeting import OutputGreeting
+from ShowBoard import ShowBoard
+from LeftPieces import UpdatePieceList
+from TakeFirstInput import TakeFirstInput
+# from PlacePiece import PlacePiece
+from PieceInput import TakePieceInput
+# from CheckBoard import CheckBoard
+from Ending import Ending
+from ResolveStatus import ResolveStatus
 
 
-from PlacePiece import PlacePiece
+# --- MAIN ---
+# Showing a greeting message before the game starts
+OutputGreeting()
 
-PlacePiece("LHSN")
+# Board is shown for the first player
+ShowBoard()
 
+# Counter to track the move number is initialized
+Counter = 0
 
-#what we need
-"""
-main variables
-1. 1D list for the left objects
-2. 2D list for the board
-3. Current player 
+# Player one chooses his first piece
+Piece = TakeFirstInput()
 
-functions/modules:
-1. Is there 4 in a row. 
-    inputs list for the board
-    returns boolean if there is 4 in a row, otherwise false
-2. inputing the next object to place(with all the checking) or saying quarto:
-    inputs all list for the left objects
-    returns next object and list of the left objects
-3. placing the object on the board 
-    inputs object, board list
-    prompits and inputs from the player the coordinates, checks them
-    returns new board 
+while (globals.Status == 0):
+    Counter += 1
+    PlacePiece(Piece)   # Player places the given piece
+    ShowBoard()         # Updated board is shown
+    Piece = TakePieceInput()  # Player either piece for opponent or says "Quarto"  
+    while (Piece == "Quatro"):
+        if (CheckBoard()):
+            ResolveStatus()
+        else:
+            print("There was no Quarto!")
+            Piece = TakePieceInput()
 
-Interface: 
-board with coordinates
+    UpdatePieceList(Piece)
 
+    if (globals.Status == 0) and (Counter == 16):
+        globals.Status = 3
 
-LHSN
-LHCN
-LTSN
-LTCN
-LHSY
-LHCY
-LTSY
-LTCY
-DHSN
-DHCN
-DTSN
-DTCN
-DHSY
-DHCY
-DTSY
-DTCY
+# PlacePiece is called, user makes position choice, board is updated
 
-"""
+# In loop, players choose their piece from a possible list
+Piece = TakePieceInput()
 
+# PlacePiece is called and board updated and checked
 
+# Finally, when game is over, a final message is output:
+Ending(globals.Status)
+# Player who won or that it was a draw
