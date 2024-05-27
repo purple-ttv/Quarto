@@ -17,3 +17,6 @@ def PlacePiece(Piece):
     #print(globals.Board)
 
 
+# This procedure places the piece (taken as parameter), and places it on the board
+# i.e. inserts into the correct position in the global 2D array
+# Also ensure that a valid and available coordinate value is entered

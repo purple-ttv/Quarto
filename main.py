@@ -1,7 +1,7 @@
 # This file was written by Vakaris
 
 # --- Importing all modules ---
-# import time
+import time
 import globals
 from Greeting import OutputGreeting
 from ShowBoard import ShowBoard
@@ -15,45 +15,37 @@ from ResolveStatus import ResolveStatus
 
 
 # --- MAIN ---
-# Showing a greeting message before the game starts
-OutputGreeting()
+OutputGreeting()                # Showing a greeting message before the game starts
+ShowBoard()                     # The board is shown for the first player
 
-# Board is shown for the first player
-ShowBoard()
+Counter = 0                     # Counter to track the move number
+IsOver = False                  # Flag used to break out of the main loop
 
-# Counter to track the move number is initialized
-Counter = 0
-IsOver = False
+Piece = TakeFirstInput()        # Player one chooses his first piece
+                                # Different function, as player can choose a piece himself
 
-# Player one chooses his first piece
-Piece = TakeFirstInput()
-
-while (globals.Status == 0):
+while (globals.Status == 0):    # Loop will stop when the global Status variable is changed (indicating the ste of the game)
     Counter += 1
     PlacePiece(Piece)           # Player places the given piece
     ShowBoard()                 # Updated board is shown
-    Piece = TakePieceInput()    # Player either piece for opponent or says "Quarto"  
+
+    if (globals.Status == 0) and (Counter == 16):
+        globals.Status = 3      # To indicate a draw ("and" needed to avoid a problem when a player wins on last move)
+        break                   # Loop needs to end before taking another piece input, as no more pieces left in a draw
+    
+    Piece = TakePieceInput()    # Player either chooses a piece for opponent or says "Quarto" if he believes he can win
     while (Piece == "Quarto"):
-        if (CheckBoard()):
+        if (CheckBoard()):      # If a Quarto is present on the board, the current player wins, else play continues
             ResolveStatus(Counter)
             IsOver = True
-            break
-        else:
+            break               # Needed as value of Piece doesn't actually change, i.e. loop wouldn't be exited
+        else:                   # I.e. player called Quarto incorrectly, play proceeds after player enters a valid piece
             print("There was no Quarto!")
             Piece = TakePieceInput()
 
     if IsOver == True:
-        break
+        break                   # Loop is exited fully in case game finished
 
-    UpdatePieceList(Piece)
+    UpdatePieceList(Piece)      # Only executed when Piece is for sure on the LeftPieces list (previous loop ensures this)
 
-    if (globals.Status == 0) and (Counter == 16):
-        globals.Status = 3
-
-# PlacePiece is called, user makes position choice, board is updated
-
-# PlacePiece is called and board updated and checked
-
-# Finally, when game is over, a final message is output:
-Ending(globals.Status)
-# Player who won or that it was a draw
+Ending(globals.Status)          # Finally, when game is over, a final message is output based on the result

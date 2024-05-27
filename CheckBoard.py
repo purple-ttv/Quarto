@@ -48,3 +48,6 @@ def CheckBoard(): #Board[XCoordinate][YCoordinate]
     return False
 
 
+# Function used to check if there is a Quarto on the board
+# Quarto = 4 in a row / diagonal of the same characteristic
+# Returned boolean value is used to exit the main loop
