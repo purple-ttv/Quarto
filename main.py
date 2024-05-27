@@ -13,10 +13,10 @@ while GameMode != "END":
         
 
     if GameMode == "PvP":
-        with open("PvP") as file:
+        with open("PvP.py") as file:
             exec(file.read())
     elif GameMode == "PvE":
-        with open("PvE") as file:
+        with open("PvE.py") as file:
             exec(file.read())
 
     GameMode = input("Would you like to play PvP or PvE? (you may write END to exit the game) ")
