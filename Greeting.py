@@ -3,7 +3,7 @@
 import time
 
 def OutputGreeting():
-    Greeting = f"""
+    Greeting = """
     Welcome to Quarto!
     In order to win, you have to connect four pieces of idential properties.
     Best of luck! May the games begin!

@@ -10,10 +10,10 @@ def PlacePiece(Piece):
         StringCoordinates = input(f"Invalid coordinates, please try again placing {Piece}: ")
     globals.AvailableCoordinates.remove(StringCoordinates)
 
-    XCoordinate = ord(StringCoordinates[0]) - 65 #ord() gives an ASCII value for the character, A code is 65
-    YCoordinate = int(StringCoordinates[1]) - 1 #taking the second character from StringCoordinates, but subtracting one because list index starts from 0
+    XCoordinate = ord(StringCoordinates[0]) - 65        # ord() gives an ASCII value for the character, A code is 65
+    YCoordinate = int(StringCoordinates[1]) - 1         # taking the second character from StringCoordinates, but subtracting one because list index starts from 0
 
-    globals.Board[XCoordinate][YCoordinate] = Piece
+    globals.Board[XCoordinate][YCoordinate] = Piece     # Piece is now placed into the desired position on the board
 
     #print(globals.Board)
 
