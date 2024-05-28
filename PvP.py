@@ -17,7 +17,7 @@ from ResolveStatus import ResolveStatus
 
 # --- MAIN ---
 
-print("You chose to play PvP (Person versus Person)")
+print("\n You chose to play PvP (Person versus Person)")
 
 ShowBoard()                     # The board is shown for the first player
 
