@@ -21,9 +21,9 @@ while GameMode != "END":
 
     GameMode = input("Would you like to play PvP or PvE? (you may write END to exit the game) ")
 
-    #resettin the globals between the games
+    # Resetting the globals between the games
     globals.Board = [["----", "----", "----", "----"],["----", "----", "----", "----"],["----", "----", "----", "----"],["----", "----", "----", "----"]] 
     globals.LeftPieces = ["LHSN","LHCN","LTSN","LTCN","LHSY","LHCY","LTSY","LTCY","DHSN","DHCN","DTSN","DTCN","DHSY","DHCY","DTSY","DTCY"]
     globals.AvailableCoordinates = ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"]
 
-print("See you later!")
+print("\n See you later!")
