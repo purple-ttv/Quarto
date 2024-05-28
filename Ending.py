@@ -19,7 +19,11 @@ def Ending(Status):
         _/🏆 Congratulations to player 2, you won!
         """)
     elif (Status == 3):
-        print(">__< It's a draw this time, friendship wins! \n")
+        print("\n >__< It's a draw this time, friendship wins! \n")
+    elif (Status == 4):
+        print("\n You are hell smart, congrats! \n")
+    elif (Status == 5):
+        print("\n Computer wins, better luck next time! \n")
 
 # This procedure is used to showcase the result of the game:
 # If someone won - the Winner + no. of moves needed
